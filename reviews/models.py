@@ -1,7 +1,9 @@
 from django.db import models
 
 # Create your models here.
-from users.models import User  # To import custom User model from the users app
+from django.contrib.auth import get_user_model  # To import the custom User model dynamically
+
+User = get_user_model()  # Dynamically get the User model
 
 # Movie model to store movie details
 class Movie(models.Model):

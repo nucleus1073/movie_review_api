@@ -1,5 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth import  get_user_model
+
+User = get_user_model()  # Import the User model from Django's authentication system
 # Create your models here.
 class Movie(models.Model):
     """
@@ -35,7 +37,7 @@ class Review(models.Model):
             including the movie title, rating, and the user's email.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Link each review to a specific user
-    review_content = models.Textfield()  # Store the content of the review as text
+    review_content = models.TextField()  # Store the content of the review as text
     rating = models.PositiveIntegerField()  # Store the review's rating as a positive integer
     created_date = models.DateTimeField(auto_now_add=True)  # Automatically set the review's creation date
 

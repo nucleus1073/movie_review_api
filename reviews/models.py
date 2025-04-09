@@ -35,7 +35,6 @@ class Review(models.Model):
             including the movie title, rating, and the user's email.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Link each review to a specific user
-    user = models.ForeignKey(user, on_delete=models.CASCADE)  # Link each review to a specific user
     review_content = models.Textfield()  # Store the content of the review as text
     rating = models.PositiveIntegerField()  # Store the review's rating as a positive integer
     created_date = models.DateTimeField(auto_now_add=True)  # Automatically set the review's creation date
